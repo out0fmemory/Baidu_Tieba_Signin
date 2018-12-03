@@ -14,7 +14,10 @@ import requests, re
 
 def signin():
     print('*' * 30 + '百度贴吧签到小助手' + '*' * 30)
-    cookie = input('请输入您登录百度贴吧后获取的Cookie值:')
+    #cookie = input('请输入您登录百度贴吧后获取的Cookie值:')
+    with open("cookies.txt", "r") as f:
+            cookie = f.read()
+    cookie = cookie.strip('\n')
     url = 'https://tieba.baidu.com/'
     headers = {
         'Cookie': cookie,
